@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+streamlit-app/.streamlit/secrets.toml
+node_modules/
+.next/
