@@ -51,6 +51,8 @@ Custom CSS uses only `oklch(...)` color values. The implementation avoids hardco
 
 Streamlit's own generated styles are not controlled by this project, so the OKLCH rule applies to project-authored CSS and configuration.
 
+Button centering targets Streamlit's `data-testid="stElementContainer"` wrapper with `:has(> div[data-testid="stButton"])` because Streamlit renders buttons inside a fit-content element container. Centering only the inner button wrapper does not center the button relative to the main page container.
+
 ## Error Handling And Boundaries
 
 If `st.session_state.page` is missing or has an unexpected value, the app falls back to the `home` page. This keeps the UI recoverable during development and after Streamlit reruns.

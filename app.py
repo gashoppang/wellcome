@@ -43,29 +43,37 @@ def apply_styles() -> None:
                 margin: 0 0 2rem;
             }
 
-            div.stButton {
+            div[data-testid="stElementContainer"]:has(> div[data-testid="stButton"]) {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+
+            div[data-testid="stButton"] {
                 display: flex;
                 justify-content: center;
             }
 
-            div.stButton > button {
+            div[data-testid="stButton"] > button {
                 background: oklch(59% 0.19 35);
                 border: 1px solid oklch(52% 0.17 35);
                 border-radius: 0.5rem;
                 color: oklch(99% 0.01 95);
+                display: block;
                 font-size: 1.05rem;
                 font-weight: 700;
+                margin-inline: auto;
                 min-height: 3rem;
                 padding: 0.7rem 1.4rem;
             }
 
-            div.stButton > button:hover {
+            div[data-testid="stButton"] > button:hover {
                 background: oklch(54% 0.2 35);
                 border-color: oklch(47% 0.18 35);
                 color: oklch(99% 0.01 95);
             }
 
-            div.stButton > button:focus {
+            div[data-testid="stButton"] > button:focus {
                 box-shadow: 0 0 0 0.2rem oklch(80% 0.12 35);
                 color: oklch(99% 0.01 95);
             }
