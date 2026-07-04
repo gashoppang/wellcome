@@ -1,5 +1,6 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { useMemo, useState } from "react";
 import { GreetingPageState } from "@/domain/GreetingPageState";
 
@@ -59,9 +60,10 @@ type ConfettiProps = Readonly<{
 function Confetti({ pieces }: ConfettiProps) {
   return (
     <div className="confetti" aria-hidden="true">
-      {pieces.map((piece) => (
-        <span key={piece} style={{ "--piece-index": piece }} />
-      ))}
+      {pieces.map((piece) => {
+        const style = { "--piece-index": piece } as CSSProperties;
+        return <span key={piece} style={style} />;
+      })}
     </div>
   );
 }

@@ -30,3 +30,21 @@ python -m compileall app.py streamlit_greeting
 ```powershell
 streamlit run app.py
 ```
+
+## Vercel 배포용 앱
+
+같은 화면과 동작을 Vercel에 배포할 수 있도록 `vercel-app/`에 Next.js/TypeScript 앱을 별도로 제공합니다.
+
+```powershell
+cd vercel-app
+npm install
+npm run dev
+```
+
+Vercel 프로젝트 설정:
+
+- Framework Preset: `Next.js`
+- Root Directory: `vercel-app`
+- Install Command: `npm install`
+- Build Command: `npm run build`
+- Output Directory: 비워둠

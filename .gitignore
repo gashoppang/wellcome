@@ -3,3 +3,7 @@ __pycache__/
 .pytest_cache/
 .venv/
 .streamlit/secrets.toml
+node_modules/
+.next/
+vercel-app/node_modules/
+vercel-app/.next/
