@@ -18,6 +18,16 @@ def apply_styles() -> None:
                 color: oklch(24% 0.03 260);
             }
 
+            header[data-testid="stHeader"] {
+                background: oklch(99% 0.015 95 / 0);
+                height: 0;
+                min-height: 0;
+            }
+
+            div[data-testid="stToolbar"] {
+                display: none;
+            }
+
             .main .block-container {
                 max-width: 720px;
                 min-height: 100vh;

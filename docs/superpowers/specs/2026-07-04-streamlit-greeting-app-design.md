@@ -53,6 +53,8 @@ Streamlit's own generated styles are not controlled by this project, so the OKLC
 
 Button centering targets Streamlit's `data-testid="stElementContainer"` wrapper with `:has(> div[data-testid="stButton"])` because Streamlit renders buttons inside a fit-content element container. Centering only the inner button wrapper does not center the button relative to the main page container.
 
+The Streamlit header and toolbar are hidden with targeted `data-testid` selectors. In Streamlit 1.58, the toolbar itself can have no visible fill while the parent header keeps a dark default background, which appears as an unwanted black strip at the top of this minimal app.
+
 ## Error Handling And Boundaries
 
 If `st.session_state.page` is missing or has an unexpected value, the app falls back to the `home` page. This keeps the UI recoverable during development and after Streamlit reruns.
