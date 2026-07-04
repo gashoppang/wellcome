@@ -52,7 +52,7 @@ The celebration screen displays:
 - CSS-based confetti strips
 - button `돌아가기`
 
-The confetti effect is implemented with CSS animations and static markup. This avoids a browser-only animation dependency and keeps the Vercel app simple.
+The confetti effect is implemented with CSS animations and static markup. This avoids a browser-only animation dependency and keeps the Vercel app simple. Per-piece animation values such as start position, drift, delay, and rotation are calculated in TypeScript and passed as CSS custom properties because CSS `calc()` does not support modulo arithmetic.
 
 ## Styling
 
