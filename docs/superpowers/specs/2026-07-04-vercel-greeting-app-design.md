@@ -2,7 +2,7 @@
 
 ## Summary
 
-Add a Vercel-deployable web app that reproduces the existing greeting flow. The current Streamlit app remains available for local Python use, while the Vercel app lives independently under `vercel-app/`.
+Add a Vercel-deployable web app at the repository root that reproduces the existing greeting flow. The current Streamlit app remains available for local Python use under `streamlit-app/`.
 
 ## Goals
 
@@ -27,7 +27,7 @@ Add a Vercel-deployable web app that reproduces the existing greeting flow. The 
 
 The Vercel app uses Next.js with the App Router. The app is a client-side interactive page because the button changes view state in the browser.
 
-Files are scoped under `vercel-app/`:
+Files are scoped at the repository root:
 
 - `app/page.tsx`: page entry point.
 - `src/components/GreetingExperience.tsx`: interactive UI component.
@@ -60,7 +60,7 @@ All project-authored CSS color values use `oklch(...)`. Non-color CSS keywords s
 
 ## Deployment
 
-Vercel should use `vercel-app/` as the project root. Standard commands:
+Vercel should use the repository root as the project root. Standard commands:
 
 - Install: `npm install`
 - Develop: `npm run dev`

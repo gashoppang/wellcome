@@ -2,7 +2,7 @@
 
 ## Summary
 
-Build a small Streamlit web app that greets the user on the main screen and shows a celebration screen after the user clicks a greeting button.
+Build a small Streamlit web app under `streamlit-app/` that greets the user on the main screen and shows a celebration screen after the user clicks a greeting button.
 
 ## Goals
 
@@ -20,7 +20,7 @@ Build a small Streamlit web app that greets the user on the main screen and show
 
 ## Architecture
 
-The app uses a single Streamlit entry point, `app.py`. Page state is stored in `st.session_state.page`, with two valid states: `home` and `celebration`.
+The app uses a single Streamlit entry point, `streamlit-app/app.py`. Page state is stored in `st.session_state.page`, with two valid states: `home` and `celebration`.
 
 The UI is intentionally simple. Rendering is split into small functions so behavior can be tested without launching a browser:
 

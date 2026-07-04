@@ -2,8 +2,6 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .venv/
-.streamlit/secrets.toml
+streamlit-app/.streamlit/secrets.toml
 node_modules/
 .next/
-vercel-app/node_modules/
-vercel-app/.next/
