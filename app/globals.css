@@ -14,6 +14,8 @@
   --confetti-b: oklch(72% 0.17 145);
   --confetti-c: oklch(65% 0.18 255);
   --confetti-d: oklch(78% 0.16 95);
+  --burst-ring: oklch(78% 0.16 95 / 0.72);
+  --burst-ring-clear: oklch(78% 0.16 95 / 0);
 }
 
 * {
@@ -99,58 +101,92 @@ button {
 .confetti {
   position: absolute;
   inset: 0;
+  z-index: 0;
   pointer-events: none;
 }
 
-.confetti span {
-  --piece-index: 0;
+.celebrationBurst {
   position: absolute;
-  top: -10%;
-  left: calc((var(--piece-index) * 5.5%));
-  width: 0.7rem;
-  height: 1.2rem;
-  border-radius: 0.16rem;
-  background: var(--confetti-a);
-  animation: confetti-fall 1.8s ease-out both;
-  animation-delay: calc((var(--piece-index) % 6) * 70ms);
-  transform: rotate(calc(var(--piece-index) * 22deg));
+  top: 50%;
+  left: 50%;
+  width: min(70vmin, 34rem);
+  aspect-ratio: 1;
+  border: 0.18rem solid var(--burst-ring);
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.2);
+  animation: burst-ring 760ms ease-out both;
 }
 
-.confetti span:nth-child(4n + 2) {
+.confettiPiece {
+  --start-left: 50%;
+  --fall-x: 0rem;
+  --fall-delay: 0ms;
+  --start-rotate: 0deg;
+  --end-rotate: 360deg;
+  position: absolute;
+  top: -1.5rem;
+  left: var(--start-left);
+  width: 0.78rem;
+  height: 1.28rem;
+  border-radius: 0.16rem;
+  background: var(--confetti-a);
+  opacity: 0;
+  animation: confetti-fall 2.4s cubic-bezier(0.16, 0.82, 0.34, 1) both;
+  animation-delay: var(--fall-delay);
+  transform: translate3d(0, 0, 0) rotate(var(--start-rotate));
+}
+
+.confettiPiece:nth-child(4n + 2) {
   background: var(--confetti-b);
 }
 
-.confetti span:nth-child(4n + 3) {
+.confettiPiece:nth-child(4n + 3) {
   background: var(--confetti-c);
 }
 
-.confetti span:nth-child(4n + 4) {
+.confettiPiece:nth-child(4n + 4) {
   background: var(--confetti-d);
+}
+
+@keyframes burst-ring {
+  0% {
+    border-color: var(--burst-ring);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.18);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    border-color: var(--burst-ring-clear);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 @keyframes confetti-fall {
   0% {
     opacity: 0;
-    transform: translate3d(0, 0, 0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(var(--start-rotate));
   }
 
-  15% {
+  12% {
     opacity: 1;
+    transform: translate3d(var(--fall-x), 16vh, 0) rotate(var(--end-rotate));
   }
 
   100% {
     opacity: 0;
-    transform: translate3d(
-        calc(((var(--piece-index) % 5) - 2) * 4rem),
-        95vh,
-        0
-      )
-      rotate(calc(240deg + (var(--piece-index) * 18deg)));
+    transform: translate3d(var(--fall-x), 104vh, 0) rotate(var(--end-rotate));
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .confetti span {
+  .celebrationBurst,
+  .confettiPiece {
     animation-duration: 1ms;
   }
 }
